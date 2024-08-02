@@ -1,7 +1,7 @@
 // Import Firebase modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, onValue, push, update, remove, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getDatabase, ref, onValue, push, update, remove } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <li class="${item.purchased ? 'purchased' : ''}">
                         ${item.category ? `[${item.category}] ` : ''}${item.name}
                         <div>
-                            <button class="mark" onclick="togglePurchased(${index})">${item.purchased ? 'Unmark' : 'Mark'}</button>
-                            <button class="delete" onclick="deleteItem(${index})">Delete</button>
+                            <button class="mark" onclick="togglePurchased('${index}')">${item.purchased ? 'Unmark' : 'Mark'}</button>
+                            <button class="delete" onclick="deleteItem('${index}')">Delete</button>
                         </div>
                     </li>
                 `).join('')}
