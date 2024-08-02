@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <option value="🥩">Meat</option>
                 <option value="🍞">Bakery</option>
             </select>
-            <button onclick="addItem()">Add</button>
-            <button class="share" onclick="shareList()">Share List</button>
+            <div class="button-container">
+                <button class="add" onclick="addItem()">Add</button>
+                <button class="share" onclick="shareList()">Share List</button>
+            </div>
         `;
     }
 
