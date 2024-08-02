@@ -1,7 +1,8 @@
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB_04936pQ2ooTb-uWvpX33uS4FsMhJyGU",
     authDomain: "grocery-app-65fc6.firebaseapp.com",
-    databaseURL: "https://grocery-app-65fc6-default-rtdb.firebaseio.com", // Ensure this is correct
+    databaseURL: "https://grocery-app-65fc6-default-rtdb.firebaseio.com",
     projectId: "grocery-app-65fc6",
     storageBucket: "grocery-app-65fc6.appspot.com",
     messagingSenderId: "153617423147",
@@ -12,8 +13,12 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-const auth = firebase.auth(); // Initialize Firebase Auth
+const auth = firebase.auth(); 
 
+// Debugging: Check if Firebase initialized correctly
+console.log('Firebase initialized:', firebase.apps.length > 0);
+
+// Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function () {
     const app = document.getElementById('app');
     const listRef = database.ref('groceryList');
@@ -50,8 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateGroceryList() {
         listRef.on('value', (snapshot) => {
-            const groceryList = snapshot.val() || [];
-            renderList(Object.values(groceryList));
+            const groceryList = snapshot.val();
+            console.log('Grocery List Snapshot:', groceryList); // Debugging
+            renderList(Object.values(groceryList || {}));
         });
     }
 
@@ -60,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                // User signed in
                 console.log('User signed in', result.user);
             }).catch((error) => {
                 console.error('Sign-in error', error);
@@ -71,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.signOut = function () {
         firebase.auth().signOut()
             .then(() => {
-                // Sign-out successful
                 console.log('User signed out');
             }).catch((error) => {
                 console.error('Sign-out error', error);
@@ -97,8 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
     window.deleteItem = function (index) {
         listRef.once('value', (snapshot) => {
             const groceryList = snapshot.val();
-            const keyToRemove = Object.keys(groceryList)[index];
-            listRef.child(keyToRemove).remove();
+            const keyToRemove = Object.keys(groceryList || {})[index];
+            listRef.child(keyToRemove).remove()
+                .then(() => console.log('Item deleted'))
+                .catch((error) => console.error('Delete error', error));
         });
     };
 
@@ -106,9 +112,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.togglePurchased = function (index) {
         listRef.once('value', (snapshot) => {
             const groceryList = snapshot.val();
-            const keyToUpdate = Object.keys(groceryList)[index];
+            const keyToUpdate = Object.keys(groceryList || {})[index];
             const item = groceryList[keyToUpdate];
-            listRef.child(keyToUpdate).update({ purchased: !item.purchased });
+            listRef.child(keyToUpdate).update({ purchased: !item.purchased })
+                .then(() => console.log('Item updated'))
+                .catch((error) => console.error('Update error', error));
         });
     };
 
@@ -129,11 +137,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Failed to share. Please copy and paste manually.');
                 });
             } else {
-                // Fallback if Web Share API is not supported
                 prompt('Share this list:', listText);
             }
         });
     };
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('ServiceWorker registered with scope:', registration.scope);
+            }).catch((error) => {
+                console.error('ServiceWorker registration failed:', error);
+            });
+    }
 
     updateGroceryList();
 });
