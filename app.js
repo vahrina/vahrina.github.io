@@ -1,3 +1,8 @@
+// Import Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase, ref, onValue, push, update, remove, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB_04936pQ2ooTb-uWvpX33uS4FsMhJyGU",
@@ -11,20 +16,20 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-const auth = firebase.auth(); 
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth(app);
 
 // Debugging: Check if Firebase initialized correctly
-console.log('Firebase initialized:', firebase.apps.length > 0);
+console.log('Firebase initialized:', app);
 
-// Event listener for DOMContentLoaded
+// DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function () {
-    const app = document.getElementById('app');
-    const listRef = database.ref('groceryList');
+    const appDiv = document.getElementById('app');
+    const listRef = ref(database, 'groceryList');
 
     function renderList(groceryList) {
-        app.innerHTML = `
+        appDiv.innerHTML = `
             <h1>Grocery List</h1>
             <ul>
                 ${groceryList.map((item, index) => `
@@ -54,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateGroceryList() {
-        listRef.on('value', (snapshot) => {
+        onValue(listRef, (snapshot) => {
             const groceryList = snapshot.val();
             console.log('Grocery List Snapshot:', groceryList); // Debugging
             renderList(Object.values(groceryList || {}));
@@ -63,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sign in function
     window.signIn = function () {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
             .then((result) => {
                 console.log('User signed in', result.user);
             }).catch((error) => {
@@ -74,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sign out function
     window.signOut = function () {
-        firebase.auth().signOut()
+        signOut(auth)
             .then(() => {
                 console.log('User signed out');
             }).catch((error) => {
@@ -90,67 +95,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const category = categoryInput.value;
 
         if (newItem) {
-            const newItemRef = listRef.push();
-            newItemRef.set({ name: newItem, category, purchased: false });
-            itemInput.value = '';
-            categoryInput.value = '';
+            push(listRef, {
+                name: newItem,
+                category: category || null,
+                purchased: false
+            }).then(() => {
+                itemInput.value = '';
+                updateGroceryList();
+            }).catch((error) => {
+                console.error('Add item error', error);
+            });
         }
+    };
+
+    // Toggle purchased status
+    window.togglePurchased = function (index) {
+        const itemRef = ref(database, `groceryList/${index}`);
+        get(itemRef).then((snapshot) => {
+            const item = snapshot.val();
+            update(itemRef, {
+                purchased: !item.purchased
+            }).then(() => {
+                updateGroceryList();
+            }).catch((error) => {
+                console.error('Toggle purchased error', error);
+            });
+        });
     };
 
     // Delete item function
     window.deleteItem = function (index) {
-        listRef.once('value', (snapshot) => {
-            const groceryList = snapshot.val();
-            const keyToRemove = Object.keys(groceryList || {})[index];
-            listRef.child(keyToRemove).remove()
-                .then(() => console.log('Item deleted'))
-                .catch((error) => console.error('Delete error', error));
+        const itemRef = ref(database, `groceryList/${index}`);
+        remove(itemRef).then(() => {
+            updateGroceryList();
+        }).catch((error) => {
+            console.error('Delete item error', error);
         });
     };
 
-    // Toggle purchased function
-    window.togglePurchased = function (index) {
-        listRef.once('value', (snapshot) => {
-            const groceryList = snapshot.val();
-            const keyToUpdate = Object.keys(groceryList || {})[index];
-            const item = groceryList[keyToUpdate];
-            listRef.child(keyToUpdate).update({ purchased: !item.purchased })
-                .then(() => console.log('Item updated'))
-                .catch((error) => console.error('Update error', error));
-        });
-    };
-
-    // Share list function
+    // Share list function (for demonstration purposes)
     window.shareList = function () {
-        listRef.once('value', (snapshot) => {
-            const groceryList = snapshot.val() || [];
-            const listText = Object.values(groceryList).map(item =>
-                `${item.purchased ? '[Purchased] ' : ''}${item.category ? `[${item.category}] ` : ''}${item.name}`
-            ).join('\n');
-
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Grocery List',
-                    text: listText,
-                }).catch((error) => {
-                    console.error('Sharing failed', error);
-                    alert('Failed to share. Please copy and paste manually.');
-                });
-            } else {
-                prompt('Share this list:', listText);
-            }
-        });
+        alert('Sharing functionality is not implemented yet.');
     };
 
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then((registration) => {
-                console.log('ServiceWorker registered with scope:', registration.scope);
-            }).catch((error) => {
-                console.error('ServiceWorker registration failed:', error);
-            });
-    }
-
+    // Initial load
     updateGroceryList();
 });
