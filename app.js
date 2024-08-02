@@ -1,13 +1,12 @@
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB_04936pQ2ooTb-uWvpX33uS4FsMhJyGU",
     authDomain: "grocery-app-65fc6.firebaseapp.com",
+    databaseURL: "https://grocery-app-65fc6-default-rtdb.firebaseio.com", // Ensure this is correct
     projectId: "grocery-app-65fc6",
     storageBucket: "grocery-app-65fc6.appspot.com",
     messagingSenderId: "153617423147",
     appId: "1:153617423147:web:bddee76ea08451cb7c836e",
-    measurementId: "G-KEWQ8HKEZR",
-    databaseURL: "https://grocery-app-65fc6-default-rtdb.firebaseio.com"
+    measurementId: "G-KEWQ8HKEZR"
 };
 
 // Initialize Firebase
@@ -42,12 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <option value="🥩">Meat</option>
                 <option value="🍞">Bakery</option>
             </select>
-            <div class="button-container">
-                <button class="add" onclick="addItem()">Add</button>
-                <button class="share" onclick="shareList()">Share List</button>
-                <button class="signin" onclick="signIn()">Sign In</button>
-                <button class="signout" onclick="signOut()">Sign Out</button>
-            </div>
+            <button class="add" onclick="addItem()">Add</button>
+            <button class="share" onclick="shareList()">Share List</button>
+            <button class="signin" onclick="signIn()">Sign In</button>
+            <button class="signout" onclick="signOut()">Sign Out</button>
         `;
     }
 
@@ -61,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sign in function
     window.signIn = function () {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider)
+        firebase.auth().signInWithPopup(provider)
             .then((result) => {
                 // User signed in
                 console.log('User signed in', result.user);
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sign out function
     window.signOut = function () {
-        auth.signOut()
+        firebase.auth().signOut()
             .then(() => {
                 // Sign-out successful
                 console.log('User signed out');
