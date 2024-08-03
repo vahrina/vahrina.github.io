@@ -1,8 +1,0 @@
-{
-    "short_name": "Grocery App",
-    "name": "Grocery Shopping List",
-    "start_url": "/lab/Grocery%20App/index.html",
-    "background_color": "#2c2c2c",
-    "theme_color": "#b294bb",
-    "display": "standalone"
-}
