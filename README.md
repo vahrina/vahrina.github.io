@@ -1,3 +1,1 @@
-IMPORTANT!
-
-This is a Recipe Website.
+Works on both PC & Phone (hopefully)
