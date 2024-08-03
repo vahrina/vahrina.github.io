@@ -1,18 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery List</title>
+    <title>Recipe Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div id="app"></div>
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-    <!-- Your App Script -->
-    <script src="app.js" type="module"></script>
+    <div class="container">
+        <header>
+            <h1>My Recipe Book</h1>
+        </header>
+        <main>
+            <div class="recipe-wrapper">
+                <div class="recipes">
+                    <!--  recipe cards -->
+                    <div class="recipe-card">
+                        <a href="Recipes/index.html">
+                            <div class="recipe-image"></div>
+                            <div class="recipe-info">
+                                <h2>Creamy Egg Salad toast</h2>
+                                <p>Servings: 2 | Total Time: 20 min</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="recipe-card">
+                        <a href="Recipes/index.html">
+                            <div class="recipe-image"></div>
+                            <div class="recipe-info">
+                                <h2>Recipe Name 2</h2>
+                                <p>Servings: 4 | Total Time: 1:30</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="recipe-card">
+                        <a href="Recipes/index.html">
+                            <div class="recipe-image"></div>
+                            <div class="recipe-info">
+                                <h2>Recipe Name 3</h2>
+                                <p>Servings: 4 | Total Time: 1:30</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="recipe-card">
+                        <a href="Recipes/index.html">
+                            <div class="recipe-image"></div>
+                            <div class="recipe-info">
+                                <h2>Recipe Name 4</h2>
+                                <p>Servings: 4 | Total Time: 1:30</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="recipe-card">
+                        <a href="Recipes/index.html">
+                            <div class="recipe-image"></div>
+                            <div class="recipe-info">
+                                <h2>Recipe Name 5</h2>
+                                <p>Servings: 4 | Total Time: 1:30</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- create more -->
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev">◄</button>
+                    <button class="nav-btn next">►</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
