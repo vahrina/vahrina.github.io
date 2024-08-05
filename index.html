@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Hub</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- favicon | credits: 'https://www.svgrepo.com/svg/232766/kitchen-pack-cook' -->
     <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
@@ -22,68 +20,53 @@
             <h1>My Recipe Book</h1>
         </header>
         <main>
-            <div class="recipe-wrapper">
-                <div class="recipes">
-                    <!-- recipe cards -->
-                    <div class="recipe-card">
-                        <a href="Creamy Egg Salad Toast/index.html">
-                            <div class="recipe-image"></div>
-                            <div class="recipe-info">
-                                <h2>Creamy Egg toast</h2>
-                                <p>Servings: 2 | Total Time: 20 min</p>
-                            </div>
-                        </a>
+            <div class="carousel">
+                <button class="nav left-nav">
+                    <!-- left arrow svg -->
+                    <svg class="arrow" viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L10.83 12l4.58 4.59L14 18.41 8.41 12 14 5.59z" />
+                    </svg>
+                </button>
+                <div class="recipe-wrapper">
+                    <div class="recipes">
+                        <!-- recipe cards -->
+                        <div class="recipe-card">
+                            <a href="Recipes/Creamy Egg Toast/index.html">
+                                <div class="recipe-image">
+                                    <img src="Recipes/Creamy Egg Toast/thumbnail.jpg" alt="Thumbnail">
+                                </div>
+                                <div class="recipe-info">
+                                    <h2>Creamy Egg Toast</h2>
+                                    <p>Servings: 2 | Total Time: 20 min</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="recipe-card">
+                            <a href="Recipes/Pancake/index.html">
+                                <div class="recipe-image">
+                                    <img src="Recipes/Pancake/thumbnail.jpg" alt="Thumbnail">
+                                </div>
+                                <div class="recipe-info">
+                                    <h2>Soufflé Pancakes</h2>
+                                    <p>Servings: 2 | Total Time: 30 min</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- add more -->
                     </div>
-
-                    <div class="recipe-card">
-                        <a href="Recipes/index.html">
-                            <div class="recipe-image"></div>
-                            <div class="recipe-info">
-                                <h2>Recipe Name 2</h2>
-                                <p>Servings: 4 | Total Time: 1:30</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="recipe-card">
-                        <a href="Recipes/index.html">
-                            <div class="recipe-image"></div>
-                            <div class="recipe-info">
-                                <h2>Recipe Name 3</h2>
-                                <p>Servings: 4 | Total Time: 1:30</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="recipe-card">
-                        <a href="Recipes/index.html">
-                            <div class="recipe-image"></div>
-                            <div class="recipe-info">
-                                <h2>Recipe Name 4</h2>
-                                <p>Servings: 4 | Total Time: 1:30</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="recipe-card">
-                        <a href="Recipes/index.html">
-                            <div class="recipe-image"></div>
-                            <div class="recipe-info">
-                                <h2>Recipe Name 5</h2>
-                                <p>Servings: 4 | Total Time: 1:30</p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- create more -->
                 </div>
-                <div class="nav-buttons">
-                    <button class="nav-btn prev">◄</button>
-                    <button class="nav-btn next">►</button>
-                </div>
+                <button class="nav right-nav">
+                    <!-- right arrow svg -->
+                    <svg class="arrow" viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 5.59 16.59 12 10 18.41z" />
+                    </svg>
+                </button>
             </div>
         </main>
     </div>
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
