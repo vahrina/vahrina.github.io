@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         randomBtn.style.boxShadow = 'none';
 
         body.style.transition = 'background-color 0.5s';
-        body.style.backgroundColor = '#fff0e2';
+        body.style.backgroundColor = '#ffe4cd';
 
         setTimeout(() => {
             body.style.backgroundColor = '';
