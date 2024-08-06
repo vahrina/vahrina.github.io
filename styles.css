@@ -1,4 +1,5 @@
 /* General styles */
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 body {
@@ -9,115 +10,116 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;  /* Center vertically */
+  align-items: flex-start;
   height: 100vh;
   overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
-  margin: auto;
-  position: relative;
-  padding: 20px; /* Add padding for small screens */
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    
 }
 
 header h1 {
-  text-align: center;
-  font-size: 3em;
-  color: #6a1b9a;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 30px;
+    text-align: center;
+    font-size: 3em;
+    color: #6a1b9a;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 30px;
 }
 
 .carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  background: #fff;
-  margin-top: -20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background: #fff;
+    margin-top: -20px;
 }
 
 .recipe-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .recipes {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .recipe-card {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  padding: 0;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .recipe-card a {
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .recipe-image {
-  width: 100%;
-  height: 300px;
-  background-color: #f0f0f0;
-  border-radius: 20px 20px 0 0;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .recipe-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.1);
-  border-radius: 20px 20px 0 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    border-radius: 20px 20px 0 0;
 }
 
 .recipe-info {
-  padding: 30px;
-  background: #fff;
-  border-radius: 0 0 20px 20px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 0 0 20px 20px;
 }
 
 .recipe-info h2 {
-  margin: 0;
-  font-size: 2em;
-  color: #6a1b9a;
-  font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2em;
+    color: #6a1b9a;
+    font-family: 'Playfair Display', serif;
 }
 
 .recipe-info p {
-  font-size: 1.2em;
-  color: #777;
+    font-size: 1.2em;
+    color: #777;
 }
 
 /* Navigation arrows */
+
 .nav {
   position: absolute;
   top: 50%;
@@ -137,125 +139,163 @@ header h1 {
 }
 
 .nav:focus {
-  outline: none;
+    outline: none;
 }
 
 .nav:hover {
-  background-color: rgba(0, 0, 0, 0.0);
-  transform: translateY(-100%) scale(1.2);
+    background-color: rgba(0, 0, 0, 0.0);
+    transform: translateY(-100%) scale(1.2);
 }
 
 .left-nav {
-  left: -30px;
+    left: -30px;
 }
 
 .right-nav {
-  right: -30px;
+    right: -30px;
 }
 
 .left-arrow-wrapper,
 .right-arrow-wrapper {
-  position: absolute;
-  top: 100%;
-  transform: translateY(-140px);
-  color: #6a1b9a;
-  transition: transform 0.3s, color 0.3s;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-140px);
+    color: #6a1b9a;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .left-arrow-wrapper:hover,
 .right-arrow-wrapper:hover {
-  color: #ffffff;
-  transform: translateY(-145px);
+    color: #ffffff;
+    transform: translateY(-145px);
 }
 
 .left-arrow-wrapper {
-  left: 15px;
+    left: 15px;
 }
 
 .right-arrow-wrapper {
-  right: 15px;
+    right: 15px;
 }
 
 .arrow {
-  width: 120px;
-  height: 120px;
-  fill: currentColor;
-  transition: transform 0.3s, color 0.3s;
+    width: 120px;
+    height: 120px;
+    fill: currentColor;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .nav:active .arrow {
-  transform: scale(0.9);
-  color: #fff;
+    transform: scale(0.9);
+    color: #fff;
 }
 
 /* Phone view */
+
 @media (max-width: 600px) {
-  body {
-    align-items: center; /* Center vertically */
-  }
+    .container {
+        padding: 20px;
+    }
 
-  .container {
-    padding: 20px;
-  }
+    header h1 {
+        font-size: 3em;
+        margin-bottom: 40px;
+    }
 
-  header h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
+    .recipe-card {
+        padding: 10px;
+    }
 
-  .recipe-card {
-    padding: 10px;
-  }
+    .recipe-info h2 {
+        font-size: 1.6em;
+    }
 
-  .recipe-info h2 {
-    font-size: 1.6em;
-  }
+    .recipe-info p {
+        font-size: 1.1em;
+    }
 
-  .recipe-info p {
-    font-size: 1.1em;
-  }
+    .nav {
+        padding: 10px;
+        font-size: 2em;
+        transform: translateY(-100%) scale(1.2);
+    }
 
-  .nav {
-    padding: 10px;
-    font-size: 2em;
-    transform: translateY(-100%) scale(1.2);
-  }
+    .nav:hover {
+      background-color: rgba(0, 0, 0, 0.0);
+      transform: translateY(-100%) scale(1.2);
+    }
 
-  .nav:hover {
-    background-color: rgba(0, 0, 0, 0.0);
-    transform: translateY(-100%) scale(1.2);
-  }
+    .arrow {
+        width: 100px;
+        height: 100px;
+    }
 
-  .arrow {
-    width: 100px;
-    height: 100px;
-  }
+    .left-nav {
+        left: -10px;
+    }
 
-  .left-nav {
-    left: -10px;
-  }
+    .right-nav {
+        right: -10px;
+    }
 
-  .right-nav {
-    right: -10px;
-  }
+    .recipe-image {
+        height: 450px;
+    }
+    .left-arrow-wrapper,
+    .right-arrow-wrapper {
+      transform: translateY(-190px);
+      top: 165%;
+    }
 
-  .recipe-image {
-    height: 450px;
-  }
+    .left-arrow-wrapper:hover,
+    .right-arrow-wrapper:hover {
+      transform: translateY(-195px);
+      top: 165%;
+    }
 
-  .left-arrow-wrapper,
-  .right-arrow-wrapper {
-    transform: translateY(-190px);
-    top: 165%;
-  }
+    .container {
+        transform: translateY(-70px);
+    }
+}
 
-  .left-arrow-wrapper:hover,
-  .right-arrow-wrapper:hover {
-    transform: translateY(-195px);
-    top: 165%;
-  }
 
-  .container {
-    transform: translateY(-80px);
-  }
+/* Lower buttons */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.library-btn,
+.random-btn {
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.7);
+    font-family: 'Lato', sans-serif;
+    outline: 3px solid #5a217e;
+}
+
+.library-btn:hover,
+.random-btn:hover {
+    background-color: #501b70;
+    transform: scale(1.05);
+}
+
+.library-btn:focus,
+.random-btn:focus {
+    outline: none;
+}
+
+.library-btn:active,
+.random-btn:active {
+    box-shadow: none;
+    transform: scale(1);
 }
