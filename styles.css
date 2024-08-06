@@ -11,30 +11,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   overflow: hidden;
 }
 
 .container {
-    max-width: 1200px; /* Increased max-width */
+    max-width: 1200px;
     margin: auto;
-    padding: 40px; /* Increased padding */
+    padding: 40px;
     position: relative;
+    margin-top: 150px;
 }
 
 header h1 {
     text-align: center;
-    font-size: 3em; /* Increased font size */
+    font-size: 3em;
     color: #6a1b9a;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 30px; /* Increased margin */
+    margin-bottom: 30px;
 }
 
 .carousel {
     position: relative;
     overflow: hidden;
-    border-radius: 20px; /* Increased border radius */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increased shadow */
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     background: #fff;
 }
 
@@ -57,14 +58,14 @@ header h1 {
     box-sizing: border-box;
     padding: 0;
     background: #fff;
-    border-radius: 20px; /* Increased border radius */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: 'Lato', sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 20px; /* Increased padding */
+    padding: 20px;
 }
 
 .recipe-card a {
@@ -77,9 +78,9 @@ header h1 {
 
 .recipe-image {
     width: 100%;
-    height: 300px; /* Increased height */
+    height: 300px;
     background-color: #f0f0f0;
-    border-radius: 20px 20px 0 0; /* Increased border radius */
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -96,24 +97,24 @@ header h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1);
-    border-radius: 20px 20px 0 0; /* Increased border radius */
+    border-radius: 20px 20px 0 0;
 }
 
 .recipe-info {
-    padding: 30px; /* Increased padding */
+    padding: 30px;
     background: #fff;
-    border-radius: 0 0 20px 20px; /* Increased border radius */
+    border-radius: 0 0 20px 20px;
 }
 
 .recipe-info h2 {
     margin: 0;
-    font-size: 2em; /* Increased font size */
+    font-size: 2em;
     color: #6a1b9a;
     font-family: 'Playfair Display', serif;
 }
 
 .recipe-info p {
-    font-size: 1.2em; /* Increased font size */
+    font-size: 1.2em;
     color: #777;
 }
 
@@ -123,13 +124,13 @@ header h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-100%);
-  background-color: rgba(0, 0, 0, 0.0); /* Darker background */
+  background-color: rgba(0, 0, 0, 0.0);
   color: #000000;
   border: none;
-  padding: 15px; /* Increased padding */
+  padding: 15px;
   cursor: pointer;
   border-radius: 50%;
-  font-size: 2.5em; /* Increased font size */
+  font-size: 2.5em;
   transition: background-color 0.3s, transform 0.3s, color 0.3s;
   z-index: 1;
   display: flex;
@@ -147,39 +148,39 @@ header h1 {
 }
 
 .left-nav {
-    left: -30px; /* Adjusted position */
+    left: -30px;
 }
 
 .right-nav {
-    right: -30px; /* Adjusted position */
+    right: -30px;
 }
 
 .left-arrow-wrapper,
 .right-arrow-wrapper {
     position: absolute;
-    top: 100%; /* Position below the primary arrow */
-    transform: translateY(-140px); /* Adjust spacing from primary arrow */
+    top: 100%;
+    transform: translateY(-140px);
     color: #6a1b9a;
-    transition: transform 0.3s, color 0.3s; /* Smooth transition */
+    transition: transform 0.3s, color 0.3s;
 }
 
 .left-arrow-wrapper:hover,
 .right-arrow-wrapper:hover {
     color: #ffffff;
-    transform: translateY(-145px); /* Smooth move on hover */
+    transform: translateY(-145px);
 }
 
 .left-arrow-wrapper {
-    left: 15px; /* Align with left primary arrow */
+    left: 15px;
 }
 
 .right-arrow-wrapper {
-    right: 15px; /* Align with right primary arrow */
+    right: 15px;
 }
 
 .arrow {
-    width: 120px; /* Increased size */
-    height: 120px; /* Increased size */
+    width: 120px;
+    height: 120px;
     fill: currentColor;
     transition: transform 0.3s, color 0.3s;
 }
@@ -189,16 +190,16 @@ header h1 {
     color: #fff;
 }
 
-/* Media queries for responsiveness */
+/* Phone view */
 
 @media (max-width: 600px) {
     .container {
-        padding: 20px; /* Reduced padding for smaller screens */
+        padding: 20px;
     }
 
     header h1 {
-        font-size: 3em; /* Adjusted font size */
-        margin-bottom: 20px; /* Adjusted margin */
+        font-size: 3em;
+        margin-bottom: 20px;
     }
 
     .recipe-card {
@@ -206,47 +207,50 @@ header h1 {
     }
 
     .recipe-info h2 {
-        font-size: 1.6em; /* Adjusted font size */
+        font-size: 1.6em;
     }
 
     .recipe-info p {
-        font-size: 1.1em; /* Adjusted font size */
+        font-size: 1.1em;
     }
 
     .nav {
-        padding: 10px; /* Reduced padding */
-        font-size: 2em; /* Adjusted font size */
+        padding: 10px;
+        font-size: 2em;
         transform: translateY(-100%) scale(1.2);
     }
 
     .nav:hover {
       background-color: rgba(0, 0, 0, 0.0);
-      transform: translateY(-10%) scale(1.2);
+      transform: translateY(-100%) scale(1.2);
     }
 
     .arrow {
-        width: 100px; /* Adjusted size */
-        height: 100px; /* Adjusted size */
+        width: 100px;
+        height: 100px;
     }
 
     .left-nav {
-        left: -10px; /* Adjusted for smaller screens */
+        left: -10px;
     }
 
     .right-nav {
-        right: -10px; /* Adjusted for smaller screens */
+        right: -10px;
     }
 
     .recipe-image {
-        height: 450px; /* Adjust for mobile */
+        height: 450px;
     }
     .left-arrow-wrapper,
     .right-arrow-wrapper {
-      transform: translateY(-190px); /* Adjust spacing from primary arrow */
+      transform: translateY(-190px);
       top: 165%;
     }
-    .nav:hover {
-      background-color: rgba(0, 0, 0, 0.0);
-      transform: scale(1.2);
-  }
+
+    .left-arrow-wrapper:hover,
+    .right-arrow-wrapper:hover {
+      transform: translateY(-195px);
+      top: 165%;
+    }
+
 }
