@@ -1,25 +1,28 @@
 /* General styles */
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: #fdf6f0;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  overflow: hidden;
+    font-family: 'Lato', sans-serif;
+    background-color: #fdf6f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
-    position: relative;
-    
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 header h1 {
@@ -36,7 +39,7 @@ header h1 {
     border-radius: 20px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     background: #fff;
-    margin-top: -20px;
+    width: 100%;
 }
 
 .recipe-wrapper {
@@ -56,16 +59,15 @@ header h1 {
 .recipe-card {
     flex: 0 0 100%;
     box-sizing: border-box;
-    padding: 0;
+    padding: 20px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: 'Lato', sans-serif;
-    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    height: 100%;
 }
 
 .recipe-card a {
@@ -101,7 +103,7 @@ header h1 {
 }
 
 .recipe-info {
-    padding: 30px;
+    padding: 20px;
     background: #fff;
     border-radius: 0 0 20px 20px;
 }
@@ -119,23 +121,22 @@ header h1 {
 }
 
 /* Navigation arrows */
-
 .nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-100%);
-  background-color: rgba(0, 0, 0, 0.0);
-  color: #000000;
-  border: none;
-  padding: 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 2.5em;
-  transition: background-color 0.3s, transform 0.3s, color 0.3s;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #000000;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2.5em;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav:focus {
@@ -144,7 +145,7 @@ header h1 {
 
 .nav:hover {
     background-color: rgba(0, 0, 0, 0.0);
-    transform: translateY(-100%) scale(1.2);
+    transform: translateY(-50%) scale(1.2);
 }
 
 .left-nav {
@@ -191,15 +192,14 @@ header h1 {
 }
 
 /* Phone view */
-
 @media (max-width: 600px) {
     .container {
-        padding: 20px;
+        padding: 10px;
     }
 
     header h1 {
-        font-size: 3em;
-        margin-bottom: 40px;
+        font-size: 2em;
+        margin-bottom: 20px;
     }
 
     .recipe-card {
@@ -217,12 +217,7 @@ header h1 {
     .nav {
         padding: 10px;
         font-size: 2em;
-        transform: translateY(-100%) scale(1.2);
-    }
-
-    .nav:hover {
-      background-color: rgba(0, 0, 0, 0.0);
-      transform: translateY(-100%) scale(1.2);
+        transform: translateY(-50%) scale(1.2);
     }
 
     .arrow {
@@ -239,28 +234,21 @@ header h1 {
     }
 
     .recipe-image {
-        height: 450px;
+        height: 250px;
     }
+    
     .left-arrow-wrapper,
     .right-arrow-wrapper {
-      transform: translateY(-190px);
-      top: 165%;
-    }
-
-    .left-arrow-wrapper:hover,
-    .right-arrow-wrapper:hover {
-      transform: translateY(-195px);
-      top: 165%;
+        transform: translateY(-150px);
+        top: 150%;
     }
 
     .container {
-        transform: translateY(-70px);
+        transform: translateY(-40px);
     }
 }
 
-
 /* Lower buttons */
-
 .button-container {
     display: flex;
     justify-content: center;
@@ -280,7 +268,7 @@ header h1 {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 7px 10px rgba(0, 0, 0, 0.7);
     font-family: 'Lato', sans-serif;
-    outline: 3px solid #5a217e;
+    outline: 3px solid #5a217e; /* Add outline on hover */
 }
 
 .library-btn:hover,
