@@ -5,10 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipeCards = document.querySelectorAll('.recipe-card');
 
     let currentIndex = 0;
+    let autoScroll;
 
     function updateCarousel() {
         const offset = -currentIndex * 100;
         recipes.style.transform = `translateX(${offset}%)`;
+    }
+
+    function resetTimer() {
+        clearInterval(autoScroll);
+        autoScroll = setInterval(() => {
+            rightNav.click();
+        }, 5000);
     }
 
     leftNav.addEventListener('click', () => {
@@ -18,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = recipeCards.length - 1;
         }
         updateCarousel();
+        resetTimer();
     });
 
     rightNav.addEventListener('click', () => {
@@ -27,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = 0;
         }
         updateCarousel();
+        resetTimer();
     });
 
-    // Automatically scroll every 5 seconds
-    setInterval(() => {
+    autoScroll = setInterval(() => {
         rightNav.click();
     }, 5000);
 
