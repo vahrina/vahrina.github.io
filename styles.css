@@ -1,33 +1,40 @@
+/* General styles */
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 body {
-    font-family: 'Lato', sans-serif;
-    background-color: #fdf6f0;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: 'Lato', sans-serif;
+  background-color: #fdf6f0;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px; /* Increased max-width */
     margin: auto;
-    padding: 20px;
+    padding: 40px; /* Increased padding */
     position: relative;
 }
 
 header h1 {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 3em; /* Increased font size */
     color: #6a1b9a;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin */
 }
 
 .carousel {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 20px; /* Increased border radius */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increased shadow */
     background: #fff;
 }
 
@@ -50,13 +57,14 @@ header h1 {
     box-sizing: border-box;
     padding: 0;
     background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px; /* Increased border radius */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow */
     text-align: center;
     font-family: 'Lato', sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
+    padding: 20px; /* Increased padding */
 }
 
 .recipe-card a {
@@ -69,9 +77,9 @@ header h1 {
 
 .recipe-image {
     width: 100%;
-    height: 250px;
+    height: 300px; /* Increased height */
     background-color: #f0f0f0;
-    border-radius: 15px 15px 0 0;
+    border-radius: 20px 20px 0 0; /* Increased border radius */
     overflow: hidden;
     position: relative;
     display: flex;
@@ -88,44 +96,45 @@ header h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1);
-    border-radius: 15px 15px 0 0;
+    border-radius: 20px 20px 0 0; /* Increased border radius */
 }
 
 .recipe-info {
-    padding: 20px;
+    padding: 30px; /* Increased padding */
     background: #fff;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 20px 20px; /* Increased border radius */
 }
 
 .recipe-info h2 {
     margin: 0;
-    font-size: 1.8em;
+    font-size: 2em; /* Increased font size */
     color: #6a1b9a;
     font-family: 'Playfair Display', serif;
 }
 
 .recipe-info p {
-    font-size: 1.1em;
+    font-size: 1.2em; /* Increased font size */
     color: #777;
 }
 
+/* Navigation arrows */
+
 .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #6a1b9a;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 2em;
-    transition: background-color 0.3s, transform 0.3s, color 0.3s;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  background-color: rgba(0, 0, 0, 0.0); /* Darker background */
+  color: #000000;
+  border: none;
+  padding: 15px; /* Increased padding */
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 2.5em; /* Increased font size */
+  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav:focus {
@@ -133,22 +142,44 @@ header h1 {
 }
 
 .nav:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    transform: translateY(-50%) scale(1.2);
+    background-color: rgba(0, 0, 0, 0.0);
+    transform: translateY(-100%) scale(1.2);
 }
 
 .left-nav {
-    left: 10px;
+    left: -30px; /* Adjusted position */
 }
 
 .right-nav {
-    right: 10px;
+    right: -30px; /* Adjusted position */
+}
+
+.left-arrow-wrapper,
+.right-arrow-wrapper {
+    position: absolute;
+    top: 100%; /* Position below the primary arrow */
+    transform: translateY(-140px); /* Adjust spacing from primary arrow */
+    color: #6a1b9a;
+    transition: transform 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.left-arrow-wrapper:hover,
+.right-arrow-wrapper:hover {
+    color: #ffffff;
+    transform: translateY(-145px); /* Smooth move on hover */
+}
+
+.left-arrow-wrapper {
+    left: 15px; /* Align with left primary arrow */
+}
+
+.right-arrow-wrapper {
+    right: 15px; /* Align with right primary arrow */
 }
 
 .arrow {
-    width: 30px;
-    height: 30px;
+    width: 120px; /* Increased size */
+    height: 120px; /* Increased size */
     fill: currentColor;
     transition: transform 0.3s, color 0.3s;
 }
@@ -158,31 +189,64 @@ header h1 {
     color: #fff;
 }
 
+/* Media queries for responsiveness */
+
 @media (max-width: 600px) {
+    .container {
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
+    header h1 {
+        font-size: 3em; /* Adjusted font size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
     .recipe-card {
         padding: 10px;
     }
 
     .recipe-info h2 {
-        font-size: 1.5em;
+        font-size: 1.6em; /* Adjusted font size */
     }
 
     .recipe-info p {
-        font-size: 1em;
+        font-size: 1.1em; /* Adjusted font size */
     }
 
     .nav {
-        padding: 10px;
-        font-size: 1.5em;
+        padding: 10px; /* Reduced padding */
+        font-size: 2em; /* Adjusted font size */
+        transform: translateY(-100%) scale(1.2);
+    }
+
+    .nav:hover {
+      background-color: rgba(0, 0, 0, 0.0);
+      transform: translateY(-10%) scale(1.2);
     }
 
     .arrow {
-        width: 25px;
-        height: 25px;
+        width: 100px; /* Adjusted size */
+        height: 100px; /* Adjusted size */
+    }
+
+    .left-nav {
+        left: -10px; /* Adjusted for smaller screens */
+    }
+
+    .right-nav {
+        right: -10px; /* Adjusted for smaller screens */
     }
 
     .recipe-image {
-        height: 200px;
-        /* Adjust for mobile */
+        height: 450px; /* Adjust for mobile */
     }
+    .left-arrow-wrapper,
+    .right-arrow-wrapper {
+      transform: translateY(-190px); /* Adjust spacing from primary arrow */
+      top: 165%;
+    }
+    .nav:hover {
+      background-color: rgba(0, 0, 0, 0.0);
+      transform: scale(1.2);
+  }
 }
