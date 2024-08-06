@@ -14,16 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
     leftNav.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
-            updateCarousel();
+        } else {
+            currentIndex = recipeCards.length - 1;
         }
+        updateCarousel();
     });
 
     rightNav.addEventListener('click', () => {
         if (currentIndex < recipeCards.length - 1) {
             currentIndex++;
-            updateCarousel();
+        } else {
+            currentIndex = 0;
         }
+        updateCarousel();
     });
+
+    // Automatically scroll every 5 seconds
+    setInterval(() => {
+        rightNav.click();
+    }, 5000);
 
     updateCarousel();
 });
